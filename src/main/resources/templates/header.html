@@ -1,0 +1,25 @@
+<html layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<header th:fragment="headerFragment" class="top-bar bg-black text-white" style="height: 50px">
+    <div class="container h-100 d-flex align-items-center">
+        <a th:href="@{/post/list}" class="logo">게시판 서비스</a>
+        <nav class="menu-1" style="margin-left: auto;">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    회원 관리
+                </button>
+                <ul class="dropdown-menu" sec:authorize="isAnonymous()">
+                    <li><a class="dropdown-item" th:href="@{/user/login}">로그인</a></li>
+                    <li><a class="dropdown-item" th:href="@{/user/join}">회원가입</a></li>
+                </ul>
+                <ul class="dropdown-menu" sec:authorize="isAuthenticated()">
+                    <li><a class="dropdown-item"  th:href="@{/user/logout}">로그아웃</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+</html>
