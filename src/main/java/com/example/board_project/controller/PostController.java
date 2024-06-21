@@ -175,14 +175,3 @@ public class PostController {
         model.addAttribute("lastPage", lastPage);
     }
 }
-
-// 페이징 처리
-// 현재 페이지 번호 : page
-// 페이지당 게시글 수 : rows
-// 노출 페이지 개수 : pageCount
-// 데이터 개수 : totalCount
-
-// 시작 번호 : ((page - 1) / pageCount) * pageCount + 1
-// 끝 번호 : ((page - 1) / pageCount + 1) * pageCount
-// 첫 번호 : 1
-// 마지막 번호 : (totalCount - 1) / rows + 1
