@@ -8,6 +8,7 @@ import com.example.board_project.service.CommentService;
 import com.example.board_project.service.PostService;
 import com.example.board_project.service.UserService;
 import com.example.board_project.util.DataNotFoundException;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -34,6 +35,7 @@ public class CommentController {
     }
 
     // 댓글 등록
+    @Operation(summary = "댓글 등록", description = "로그인 한 회원만 댓글 등록 가능")
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/comment/write/{id}")
     public String addComment(Principal principal, Model model, @PathVariable long id, @Valid CommentRequest commentRequest, BindingResult bindingResult) {
@@ -49,7 +51,7 @@ public class CommentController {
 
         return "redirect:/post/detail/%d#comment_%s".formatted(comment.getPost().getId(), comment.getId());
     }
-
+    @Operation(summary = "댓글 수정", description = "로그인 한 회원 본인 댓글만 수정 페이지로 이동 가능")
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/comment/modify/{id}")
     public String modifyComment(CommentRequest commentRequest, @PathVariable Long id, Principal principal) {
@@ -69,6 +71,7 @@ public class CommentController {
     }
 
     // 댓글 수정
+    @Operation(summary = "댓글 수정", description = "로그인 한 회원 본인 댓글만 수정 가능")
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/comment/modify/{id}")
     public String modifyComment(@Valid CommentRequest commentRequest, @PathVariable Long id, BindingResult bindingResult, Principal principal) {
@@ -87,6 +90,7 @@ public class CommentController {
         return "redirect:/post/detail/%d#comment_%s".formatted(comment.getPost().getId(), comment.getId());
     }
 
+    @Operation(summary = "댓글 삭제", description = "로그인 한 회원 본인 댓글만 삭제 가능")
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/comment/delete/{id}")
     public String deleteComment(@PathVariable Long id, Principal principal) {
@@ -105,6 +109,7 @@ public class CommentController {
         return "redirect:/post/detail/%d#comment_%s".formatted(comment.getPost().getId(), comment.getId());
     }
 
+    @Operation(summary = "댓글 좋아요", description = "로그인 한 회원만 댓글 좋아요 가능")
     @PreAuthorize("isAuthenticated()")
     @GetMapping("comment/vote/{id}")
     public String answerVote(Principal principal, @PathVariable Long id) {
