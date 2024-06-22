@@ -7,6 +7,7 @@ import com.example.board_project.entity.SiteUser;
 import com.example.board_project.service.PostService;
 import com.example.board_project.service.UserService;
 import com.example.board_project.util.DataNotFoundException;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -35,6 +36,7 @@ public class PostController {
     }
 
     // 글 작성 폼
+    @Operation(summary = "게시글 작성 페이지", description = "로그인 한 회원만 게시글 작성 페이지로 이동 가능")
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/post/write")
     public String write(PostRequest postRequest) {
@@ -42,6 +44,7 @@ public class PostController {
     }
 
     // 글 작성
+    @Operation(summary = "게시글 작성 페이지", description = "로그인 한 회원만 게시글 작성 가능")
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/post/write")
     public String addPost(@Valid PostRequest postRequest, BindingResult bindingResult, Principal principal) {
@@ -57,6 +60,7 @@ public class PostController {
     }
 
     // 게시글 수정 폼
+    @Operation(summary = "게시글 수정 페이지", description = "로그인 한 회원 본인 게시글만 게시글 수정 페이지로 이동 가능")
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/post/modify/{id}")
     public String modifyPost(PostRequest postRequest, @PathVariable Long id, Principal principal) {
@@ -76,6 +80,7 @@ public class PostController {
     }
 
     // 게시글 수정
+    @Operation(summary = "게시글 수정 페이지", description = "로그인 한 회원 본인 게시글만 수정 가능")
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/post/modify/{id}")
     public String modifyPost(@Valid PostRequest postRequest, @PathVariable Long id, BindingResult bindingResult, Principal principal) {
@@ -95,6 +100,7 @@ public class PostController {
     }
 
     // 게시글 목록
+    @Operation(summary = "게시글 목록 페이지", description = "게시글 목록 페이지로 이동")
     @GetMapping("/post/list")
     public String list(Model model,
                        @RequestParam(defaultValue = "") String keyword,
@@ -109,6 +115,7 @@ public class PostController {
     }
 
     // 게시글 상세
+    @Operation(summary = "게시글 상세 페이지", description = "게시글 상세 페이지로 이동")
     @GetMapping("/post/detail/{id}")
     public String detail(Model model, @PathVariable Long id, CommentRequest commentRequest) {
         postService.incrementViewCount(id); // 조회수 증가
@@ -119,6 +126,7 @@ public class PostController {
     }
 
     // 게시글 삭제
+    @Operation(summary = "게시글 삭제", description = "로그인 한 회원 본인 게시글만 삭제 가능")
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/post/delete/{id}")
     public String deletePost(Principal principal, @PathVariable Long id) {
@@ -136,6 +144,7 @@ public class PostController {
         return "redirect:/";
     }
 
+    @Operation(summary = "게시글 좋아요", description = "로그인 한 회원만 게시글 좋아요 가능")
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/post/vote/{id}")
     public String votePost(Principal principal, @PathVariable Long id) {
@@ -145,6 +154,7 @@ public class PostController {
         return "redirect:/post/detail/%d".formatted(id);
     }
 
+    @Operation(summary = "게시글 좋아요 취소", description = "로그인 한 회원만 게시글 좋아요 취소 가능")
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/post/unvote/{id}")
     public String unvotePost(Principal principal, @PathVariable Long id) {
