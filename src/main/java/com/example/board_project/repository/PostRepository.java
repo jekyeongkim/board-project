@@ -15,7 +15,7 @@ public interface PostRepository extends JpaRepository<Post, Long>, RepositoryUti
 
     @Transactional
     @Modifying
-    @Query(value = "ALTER TABLE POST ALTER COLUMN ID RESTART WITH 1", nativeQuery = true)
+    @Query(value = "ALTER TABLE POST AUTO_INCREMENT = 1", nativeQuery = true)
     void truncate();
 
     Post findByTitle(String title);

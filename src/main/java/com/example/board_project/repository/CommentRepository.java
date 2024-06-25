@@ -11,6 +11,6 @@ public interface CommentRepository extends JpaRepository<Comment, Long>, Reposit
 
     @Transactional
     @Modifying
-    @Query(value = "ALTER TABLE COMMENT ALTER COLUMN ID RESTART WITH 1", nativeQuery = true)
+    @Query(value = "ALTER TABLE COMMENT AUTO_INCREMENT = 1", nativeQuery = true)
     void truncate();
 }

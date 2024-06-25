@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<SiteUser, Long>, RepositoryUtil {
     @Transactional
     @Modifying
-    @Query(value = "ALTER TABLE SITE_USER ALTER COLUMN ID RESTART WITH 1", nativeQuery = true)
+    @Query(value = "ALTER TABLE SITE_USER AUTO_INCREMENT = 1", nativeQuery = true)
     void truncate();
 
     Optional<SiteUser> findByUsername(String username);
