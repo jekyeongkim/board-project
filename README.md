@@ -83,6 +83,7 @@
 
 ## 프로젝트 구조
 
+```
 ├── main
 │   ├── java
 │   │   └── com
@@ -153,6 +154,7 @@
                     │   └── PostRepositoryTests.java
                     └── service
                         └── UserServiceTests.java
+```
 
 ## api docs
 
