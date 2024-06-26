@@ -79,7 +79,7 @@
 
 ## [ERD 데이터 모델링]
 
-![img](docs/erd 최종.png)
+![erd 최종](https://github.com/jekyeongkim/board-project/assets/130130973/e707fc74-05f9-4e7c-a764-b9036ca4c5e1)
 
 ## 프로젝트 구조
 
@@ -158,4 +158,6 @@
 
 ## api docs
 
+![스크린샷 2024-06-27 오전 4 59 18](https://github.com/jekyeongkim/board-project/assets/130130973/68ccf233-498b-4774-848e-059bc9151779)
+![스크린샷 2024-06-27 오전 4 59 45](https://github.com/jekyeongkim/board-project/assets/130130973/e42d49d1-583d-413f-9170-f9c1390937cb)
 ## Installation
