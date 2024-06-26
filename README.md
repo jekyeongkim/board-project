@@ -83,6 +83,77 @@
 
 ## 프로젝트 구조
 
+├── main
+│   ├── java
+│   │   └── com
+│   │       └── example
+│   │           └── board_project
+│   │               ├── BoardProjectApplication.java
+│   │               ├── auth
+│   │               │   └── UserRole.java
+│   │               ├── config
+│   │               │   └── SecurityConfig.java
+│   │               ├── controller
+│   │               │   ├── CommentController.java
+│   │               │   ├── HomeController.java
+│   │               │   ├── PostController.java
+│   │               │   └── UserController.java
+│   │               ├── dto
+│   │               │   ├── CommentRequest.java
+│   │               │   ├── PostRequest.java
+│   │               │   └── UserAccountRequest.java
+│   │               ├── entity
+│   │               │   ├── Comment.java
+│   │               │   ├── Post.java
+│   │               │   └── SiteUser.java
+│   │               ├── repository
+│   │               │   ├── CommentRepository.java
+│   │               │   ├── PostRepository.java
+│   │               │   └── UserRepository.java
+│   │               ├── security
+│   │               │   ├── CustomOAuth2User.java
+│   │               │   ├── CustomOAuth2UserService.java
+│   │               │   └── UserSecurityService.java
+│   │               ├── service
+│   │               │   ├── CommentService.java
+│   │               │   ├── PostService.java
+│   │               │   └── UserService.java
+│   │               ├── swagger
+│   │               │   └── SwaggerConfig.java
+│   │               └── util
+│   │                   ├── DataNotFoundException.java
+│   │                   ├── OAuth2TypeMatchNotFoundException.java
+│   │                   └── RepositoryUtil.java
+│   └── resources
+│       ├── application.properties
+│       ├── static
+│       │   ├── images
+│       │   │   ├── comment-icon.png
+│       │   │   ├── eye-icon.png
+│       │   │   └── kakao-login.png
+│       │   └── style.css
+│       └── templates
+│           ├── comment_form.html
+│           ├── form_errors.html
+│           ├── header.html
+│           ├── join_form.html
+│           ├── layout.html
+│           ├── login_form.html
+│           ├── post_detail.html
+│           ├── post_list.html
+│           └── write_form.html
+└── test
+    └── java
+        └── com
+            └── example
+                └── board_project
+                    ├── BoardProjectApplicationTests.java
+                    ├── repository
+                    │   ├── CommentRepositoryTests.java
+                    │   └── PostRepositoryTests.java
+                    └── service
+                        └── UserServiceTests.java
+
 ## api docs
 
 ## Installation
