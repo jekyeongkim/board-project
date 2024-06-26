@@ -79,7 +79,7 @@
 
 ## [ERD 데이터 모델링]
 
-![img](./docs/ERD%200730.png)
+![img](docs/erd 최종.png)
 
 ## 프로젝트 구조
 
