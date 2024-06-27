@@ -70,12 +70,10 @@
 <br/>
 <img height="30" src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white"/>
 <img height="30" src="https://img.shields.io/badge/GitHub-black?style=flat-square&logo=GitHub&logoColor=white"/>
-<img height="30" src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white"/>
-<img height="30" src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white"/>
 
 </div>
 
-- 라이브러리 : Spring Web, Spring Data JPA, Lombok, Spring Security, Swagger
+- 라이브러리 : Spring Web, Spring Data JPA, Lombok, Spring Security, OAuth2, Swagger
 
 ## [ERD 데이터 모델링]
 
